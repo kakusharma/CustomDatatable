@@ -13,12 +13,12 @@ export class GenericDatasource<T> implements DataSource<T> {
     disconnect(collectionViewer: CollectionViewer): void {
         this.subject.complete();
     }
-    initDataSource(url: string): Observable<T[]> {
-        return this.dataService.getData(url).pipe(
-            map((data: T[]) => {
-                this.subject.next(data);
-                return data;
-            })
-        );
+    initDataSource(url: string) {
+        this.dataService.getData(url)
+            .subscribe(
+                (data: T[]) => {
+                   this.subject.next(data);
+                  }
+            );
     }
 }
