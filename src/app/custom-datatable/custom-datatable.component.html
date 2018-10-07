@@ -15,6 +15,9 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+          <mat-form-field *ngSwitchDefault class="example-full-width">
+            <input matInput type="text" [value]="element[column]" />
+          </mat-form-field>
         </div>
       </td>
     </ng-container>
